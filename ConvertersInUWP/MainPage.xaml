@@ -25,12 +25,12 @@
                 <TextBox Grid.Column="1" Grid.Row="0" Margin="3" Name="customerIdTextBox" 
                          Text="{x:Bind CustomerId, Mode=TwoWay}" VerticalAlignment="Center" />
                 <FontIcon Grid.Column="2" FontFamily="Segoe MDL2 Assets" Glyph="&#xe082;" 
-                          Margin="20,0" Visibility="{x:Bind IsVip, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                          Margin="20,0" Visibility="{x:Bind IsVip, Converter={StaticResource BoolToVisibilityConverter}}" />
                 <TextBlock Text="Company Name:" Grid.Column="0" Grid.Row="1" Margin="3" VerticalAlignment="Center" />
-                <TextBox Grid.Column="1" Grid.Row="1" Margin="3" Name="companyNameTextBox" 
+                <TextBox Grid.Column="1" Grid.Row="1" Margin="3" Name="companyNameTextBox"
                          Text="{x:Bind CompanyName, Mode=TwoWay}" VerticalAlignment="Center" />
                 <TextBlock Text="Contact Name:" Grid.Column="0" Grid.Row="2" Margin="3" VerticalAlignment="Center" />
-                <TextBox Grid.Column="1" Grid.Row="2" Margin="3" Name="contactNameTextBox" 
+                <TextBox Grid.Column="1" Grid.Row="2" Margin="3" Name="contactNameTextBox"
                          Text="{x:Bind ContactName, Mode=TwoWay}" VerticalAlignment="Center" />
                 <TextBlock Text="Contact Title:" Grid.Column="0" Grid.Row="3" Margin="3" VerticalAlignment="Center" />
                 <TextBox Grid.Column="1" Grid.Row="3" Margin="3" Name="contactTitleTextBox" 
@@ -71,7 +71,8 @@
             <TextBox VerticalAlignment="Center" Margin="5,3" Width="250" VerticalContentAlignment="Center" Text="{x:Bind _mainVm.SearchText, Mode=TwoWay}" />
             <Button x:Name="PesqBtn" Content="Find" Width="75" Margin="10,5" VerticalAlignment="Center" Click="{x:Bind _mainVm.Search}" />
         </StackPanel>
-        <controls:DataGrid AutoGenerateColumns="False" x:Name="master" Grid.Row="1" ItemsSource="{x:Bind _mainVm.Customers}" SelectedItem="{x:Bind _mainVm.SelectedCustomer, Mode=TwoWay}">
+        <controls:DataGrid AutoGenerateColumns="False" x:Name="master" Grid.Row="1" 
+                           ItemsSource="{x:Bind _mainVm.Customers, Mode=OneWay}" SelectedItem="{x:Bind _mainVm.SelectedCustomer, Mode=TwoWay}">
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn x:Name="customerIDColumn" Binding="{Binding CustomerId}" Header="Customer ID" />
                 <controls:DataGridTextColumn x:Name="companyNameColumn" Binding="{Binding CompanyName}" Header="Company Name" Width="160" />
